@@ -1,9 +1,22 @@
+import { Input } from '../../components/Input'
+
 import { Profile } from './components/Profile'
+import { HomeContainer, HomeSearch } from './styles'
 
 export function Home() {
   return (
-    <main>
+    <div>
       <Profile />
-    </main>
+
+      <HomeContainer>
+        <HomeSearch>
+          <div>
+            <h3>Publicações</h3>
+            <span>6 publicações</span>
+          </div>
+          <Input placeholder="Buscar conteúdo" />
+        </HomeSearch>
+      </HomeContainer>
+    </div>
   )
 }
