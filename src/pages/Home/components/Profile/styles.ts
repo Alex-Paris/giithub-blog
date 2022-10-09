@@ -2,9 +2,13 @@ import styled from 'styled-components'
 
 export const ProfileContainer = styled.section`
   width: 100%;
-  max-width: 864px;
+  max-width: 912px;
   height: 212px;
   margin: 0 auto;
+  padding: 0 1.5rem;
+`
+
+export const ProfileContent = styled.div`
   padding: 2rem 2.5rem;
   gap: 2rem;
 
@@ -17,6 +21,7 @@ export const ProfileContainer = styled.section`
 
   margin-top: -7.75rem;
 
+  /* img */
   > span {
     width: 148px;
     height: 148px;
