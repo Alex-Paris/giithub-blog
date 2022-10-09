@@ -57,20 +57,6 @@ export const ProfileTitle = styled.div`
     font-size: 1.5rem;
     color: ${(props) => props.theme['base-title']};
   }
-
-  a {
-    font-weight: 700;
-    font-size: 0.75rem;
-    color: ${(props) => props.theme['brand-blue']};
-
-    cursor: pointer;
-    line-height: 0;
-
-    svg {
-      width: 12px;
-      height: 12px;
-    }
-  }
 `
 
 export const ProfileInfo = styled.div`

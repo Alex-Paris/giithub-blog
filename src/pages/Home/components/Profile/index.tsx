@@ -1,10 +1,8 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import {
-  faBuilding,
-  faUserGroup,
-  faArrowUpRightFromSquare,
-} from '@fortawesome/free-solid-svg-icons'
+import { faBuilding, faUserGroup } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { Link } from '../../../../components/Link'
 
 import {
   ProfileContainer,
@@ -21,9 +19,8 @@ export function Profile() {
         <div>
           <ProfileTitle>
             <h2>Cameron</h2>
-            <a>
-              GITHUB <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-            </a>
+
+            <Link text="github" />
           </ProfileTitle>
           <p>
             Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
