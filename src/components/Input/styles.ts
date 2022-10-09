@@ -9,6 +9,8 @@ export const InputContainer = styled.input`
   border-radius: 6px;
   color: ${(props) => props.theme['base-text']};
 
+  transition: border-color 0.2s;
+
   &::placeholder {
     color: ${(props) => props.theme['base-label']};
   }
