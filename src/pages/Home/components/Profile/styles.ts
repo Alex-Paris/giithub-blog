@@ -21,8 +21,7 @@ export const ProfileContent = styled.div`
 
   margin-top: -7.75rem;
 
-  /* img */
-  > span {
+  > img {
     width: 148px;
     height: 148px;
 

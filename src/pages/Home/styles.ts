@@ -75,7 +75,7 @@ export const HomeCard = styled.article`
   }
 
   &:hover {
-    transition: border-color 0.1s;
+    transition: border-color 0.2s;
     border: 2px solid ${(props) => props.theme['base-label']};
   }
 `

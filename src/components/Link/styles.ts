@@ -7,9 +7,10 @@ export const LinkContainer = styled.a`
   color: ${(props) => props.theme['brand-blue']};
 
   border-bottom: 1px solid transparent;
-  cursor: pointer;
 
-  transition: border-color 0.1s;
+  text-decoration: inherit;
+  outline: 0;
+  cursor: pointer;
 
   svg {
     width: 12px;
@@ -17,6 +18,7 @@ export const LinkContainer = styled.a`
   }
 
   &:hover {
+    transition: border-color 0.2s;
     border-bottom: 1px solid ${(props) => props.theme['brand-blue']};
   }
 `
