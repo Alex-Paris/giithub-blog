@@ -31,7 +31,7 @@ export const HomeSearch = styled.form`
   }
 `
 export const HomeCards = styled.div`
-  margin-top: 3rem;
+  margin: 3rem 0;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -39,6 +39,7 @@ export const HomeCards = styled.div`
 `
 
 export const HomeCard = styled.article`
+  width: 416px;
   height: 260px;
   padding: 2rem;
   border-radius: 10px;

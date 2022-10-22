@@ -1,9 +1,39 @@
+import { formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/esm/locale/pt-BR'
+import { useEffect, useState } from 'react'
+
 import { Input } from '../../components/Input'
+import { api } from '../../lib/axios'
 
 import { Profile } from './components/Profile'
 import { HomeCard, HomeCards, HomeContainer, HomeSearch } from './styles'
 
+interface GithubIssueData {
+  title: string
+  body: string
+  url: string
+  created_at: string
+}
+
+interface GithubIssuesData {
+  items: GithubIssueData[]
+}
+
 export function Home() {
+  const [search, setSearch] = useState('')
+  const [githubIssues, setGithubIssues] = useState<GithubIssuesData>()
+
+  const issuesAmount = githubIssues?.items.length || 0
+
+  useEffect(() => {
+    const queryString =
+      'q=' + encodeURIComponent(`${search} repo:Alex-Paris/giithub-blog`)
+
+    api
+      .get<GithubIssuesData>(`search/issues?${queryString}`)
+      .then((response) => setGithubIssues(response.data))
+  }, [search])
+
   return (
     <div>
       <Profile />
@@ -12,45 +42,29 @@ export function Home() {
         <HomeSearch>
           <div>
             <h3>Publicações</h3>
-            <span>6 publicações</span>
+            <span>{issuesAmount} publicações</span>
           </div>
-          <Input placeholder="Buscar conteúdo" />
+          <Input
+            placeholder="Buscar conteúdo"
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </HomeSearch>
 
         <HomeCards>
-          <HomeCard>
-            <header>
-              <h3>JavaScript data types and data structures</h3>
-              <span>Há 1 dia</span>
-            </header>
-            <p>
-              Programming languages all have built-in data structures, but these
-              often differ from one language to another. This article attempts
-              to list the built-in data structures available in JavaScript and
-              what properties they have. These can be used to build other data
-              structures. Wherever possible, comparisons with other languages
-              are drawn. Dynamic typing JavaScript is a loosely typed and
-              dynamic language. Variables in JavaScript are not directly
-              associated with any particular value type, and any variable can be
-              assigned (and re-assigned) values of all types: let foo = 42; //
-              foo is now a number foo = `&rsquo;`bar`&rsquo;`; // foo is now a
-              string foo = true; // foo is now a boolean
-            </p>
-          </HomeCard>
-          <HomeCard>
-            <header>
-              <h3>mimi</h3>
-              <span>h1 dia</span>
-            </header>
-            <p>dasdmasidasiasdasd</p>
-          </HomeCard>
-          <HomeCard>
-            <header>
-              <h3>mimi</h3>
-              <span>h1 dia</span>
-            </header>
-            <p>dasdmasidasiasdasd</p>
-          </HomeCard>
+          {githubIssues?.items.map((issue) => (
+            <HomeCard key={issue.url}>
+              <header>
+                <h3>{issue.title}</h3>
+                <span>
+                  {formatDistanceToNow(new Date(issue.created_at), {
+                    addSuffix: true,
+                    locale: ptBR,
+                  })}
+                </span>
+              </header>
+              <p>{issue.body}</p>
+            </HomeCard>
+          ))}
         </HomeCards>
       </HomeContainer>
     </div>
