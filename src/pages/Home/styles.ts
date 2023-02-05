@@ -36,47 +36,50 @@ export const HomeCards = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
-`
 
-export const HomeCard = styled.article`
-  width: 416px;
-  height: 260px;
-  padding: 2rem;
-  border-radius: 10px;
+  a {
+    width: 416px;
+    height: 260px;
+    padding: 2rem;
+    border-radius: 10px;
 
-  display: flex;
-  flex-direction: column;
-
-  background: ${(props) => props.theme['base-post']};
-  border: 2px solid transparent;
-
-  cursor: pointer;
-
-  header {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    flex-direction: column;
 
-    h3 {
-      flex: 1;
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: ${(props) => props.theme['base-title']};
+    background: ${(props) => props.theme['base-post']};
+    border: 2px solid transparent;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      h3 {
+        flex: 1;
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: ${(props) => props.theme['base-title']};
+      }
+
+      span {
+        font-size: 0.875rem;
+        color: ${(props) => props.theme['base-span']};
+      }
     }
 
-    span {
-      font-size: 0.875rem;
-      color: ${(props) => props.theme['base-span']};
+    p {
+      margin-top: 1.25rem;
+      overflow-y: hidden;
+      text-decoration: none;
+      color: ${(props) => props.theme['base-text']};
     }
-  }
 
-  p {
-    margin-top: 1.25rem;
-    overflow-y: hidden;
-  }
-
-  &:hover {
-    transition: border-color 0.2s;
-    border: 2px solid ${(props) => props.theme['base-label']};
+    &:hover {
+      transition: border-color 0.2s;
+      border: 2px solid ${(props) => props.theme['base-label']};
+    }
   }
 `

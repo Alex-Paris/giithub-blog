@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ProfileContainer = styled.section`
+export const IssueContainer = styled.section`
   width: 100%;
   max-width: 912px;
   height: 212px;
@@ -8,7 +8,7 @@ export const ProfileContainer = styled.section`
   padding: 0 1.5rem;
 `
 
-export const ProfileContent = styled.div`
+export const IssueContent = styled.div`
   padding: 2rem 2.5rem;
   gap: 2rem;
 
@@ -20,14 +20,6 @@ export const ProfileContent = styled.div`
   border-radius: 10px;
 
   margin-top: -7rem;
-
-  > img {
-    width: 148px;
-    height: 148px;
-
-    background: white;
-    border-radius: 8px;
-  }
 
   > div {
     flex: 1;
@@ -46,24 +38,25 @@ export const ProfileContent = styled.div`
   }
 `
 
-export const ProfileTitle = styled.div`
+export const IssueLink = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  h2 {
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: ${(props) => props.theme['base-title']};
-  }
 `
 
-export const ProfileInfo = styled.div`
+export const IssueTitle = styled.h2`
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: ${(props) => props.theme['base-title']};
+  margin-top: 0.75rem;
+`
+
+export const IssueInfo = styled.div`
   display: flex;
   gap: 1.5rem;
 
   a {
-    color: ${(props) => props.theme['base-subtitle']};
+    color: ${(props) => props.theme['base-span']};
 
     svg {
       width: 18px;
@@ -72,4 +65,10 @@ export const ProfileInfo = styled.div`
       margin-right: 0.5rem;
     }
   }
+`
+
+export const IssueBody = styled.div`
+  padding: 2.5rem 2rem;
+  margin-left: 18rem;
+  margin-right: 18rem;
 `

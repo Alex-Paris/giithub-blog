@@ -1,14 +1,16 @@
 import { formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/esm/locale/pt-BR'
 import { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 import { Input } from '../../components/Input'
 import { api } from '../../lib/axios'
 
 import { Profile } from './components/Profile'
-import { HomeCard, HomeCards, HomeContainer, HomeSearch } from './styles'
+import { HomeCards, HomeContainer, HomeSearch } from './styles'
 
 interface GithubIssueData {
+  number: number
   title: string
   body: string
   url: string
@@ -52,7 +54,11 @@ export function Home() {
 
         <HomeCards>
           {githubIssues?.items.map((issue) => (
-            <HomeCard key={issue.url}>
+            <NavLink
+              key={issue.url}
+              to={`/issue/${issue.number}`}
+              title="Issue"
+            >
               <header>
                 <h3>{issue.title}</h3>
                 <span>
@@ -63,7 +69,7 @@ export function Home() {
                 </span>
               </header>
               <p>{issue.body}</p>
-            </HomeCard>
+            </NavLink>
           ))}
         </HomeCards>
       </HomeContainer>

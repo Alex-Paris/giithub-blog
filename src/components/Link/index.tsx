@@ -1,17 +1,20 @@
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { AnchorHTMLAttributes } from 'react'
+import { NavLink } from 'react-router-dom'
 
 import { LinkContainer } from './styles'
 
 interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  text: string
+  to?: string
 }
 
-export function Link({ text, ...rest }: LinkProps) {
+export function Link({ to, children, ...rest }: LinkProps) {
   return (
-    <LinkContainer {...rest}>
-      {text} <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+    <LinkContainer>
+      {to !== undefined ? (
+        <NavLink to={to}>{children}</NavLink>
+      ) : (
+        <a {...rest}>{children}</a>
+      )}
     </LinkContainer>
   )
 }
